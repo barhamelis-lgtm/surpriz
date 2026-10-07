@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senin İçin ❤️</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #fff5f7;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            padding: 30px;
+        }
+
+        #message {
+            font-size: 42px;
+            color: #e75480;
+            cursor: pointer;
+            user-select: none;
+            transition: transform 0.2s ease;
+        }
+
+        #message:hover {
+            transform: scale(1.04);
+        }
+
+        #subMessage {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #777;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+
+        #subMessage.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div id="message">seni seviyorum</div>
+
+        <div id="subMessage">
+            yapay zekadan yardım aldım ama bana öğretmek istersen<br>
+            sana gerçek süprizler hazırlamak isterim :)
+        </div>
+    </div>
+
+    <script>
+        const message = document.getElementById("message");
+        const subMessage = document.getElementById("subMessage");
+
+        let step = 0;
+
+        message.addEventListener("click", function () {
+
+            if (step === 0) {
+
+                message.textContent =
+                    "seni gerçekten çok ama çok seviyorum. bunu sana hissettiremediğim için özür dilerim. sen de beni seviyorsan bu yazının üstüne tıkla";
+
+                message.style.fontSize = "28px";
+
+                step = 1;
+
+            } else if (step === 1) {
+
+                message.textContent =
+                    "günaydın benim birtanecik bebişim";
+
+                message.style.fontSize = "42px";
+
+                setTimeout(function () {
+                    subMessage.classList.add("show");
+                }, 1500);
+
+                step = 2;
+            }
+        });
+    </script>
+
+</body>
+</html>
